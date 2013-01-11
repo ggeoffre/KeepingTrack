@@ -42,5 +42,9 @@
 // 06 - Supporting Drag and Drop
 - (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate;
 
+// 08 - Add a Callout
+- (NSString*) title;
+- (NSString*) subtitle;
+
 
 @end

@@ -53,4 +53,17 @@
     _coordinate = newCoordinate;
 }
 
+// 08 - Add a Callout
+- (NSString*) title
+{
+    return @"CodeMash 2013";
+}
+
+// 08 - Add a Callout
+- (NSString*) subtitle
+{
+    return @"Sandusky, OH";
+}
+
+
 @end

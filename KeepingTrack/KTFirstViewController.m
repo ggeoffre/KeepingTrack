@@ -92,7 +92,9 @@
     // 06 - Supporting Drag and Drop
     [customAnnotationView setDraggable:YES];
 
-    
+    // 08 - Add a Callout
+    [customAnnotationView setCanShowCallout:YES];
+
     return customAnnotationView;
 }
 
