@@ -107,5 +107,10 @@
     }
 }
 
+// 09 - Auto Display Callout
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
+{
+    [self.myMapView selectAnnotation: [[self.myMapView annotations] lastObject] animated:YES];
+}
 
 @end
