@@ -111,6 +111,10 @@
         KTMapAnnotation *theAnnotation = (KTMapAnnotation*)annotation;
         if ([[theAnnotation typeOfAnnotation] isEqualToString:PIN_ANNOTATION]) {
             customAnnotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+
+            // 06 - Supporting Drag and Drop
+            [customAnnotationView setDraggable:YES];
+            
         }else{
             customAnnotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
 
@@ -118,10 +122,7 @@
 //            MKAnnotationView *customAnnotationView =
 //            [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
             [customAnnotationView setImage:[UIImage imageNamed:@"blue-arrow.png"]];
-            
-            // 06 - Supporting Drag and Drop
-            [customAnnotationView setDraggable:YES];
-            
+                        
             // 08 - Add a Callout
             [customAnnotationView setCanShowCallout:YES];
             
@@ -148,6 +149,30 @@
     if (newState == MKAnnotationViewDragStateEnding)
     {
         NSLog(@"Do something when annotation is dropped");
+        
+        // 14 - Draw a line between two points
+        [self.myMapView removeOverlays:self.myMapView.overlays];
+        MKMapPoint startPoint;
+        MKMapPoint endPoint;
+        CLLocation *startLocation;
+        CLLocation *endLocation;
+        KTMapAnnotation *startAnnotation;
+        for (KTMapAnnotation *theAnnotation in [self.myMapView annotations]){
+            if ([[theAnnotation typeOfAnnotation] isEqualToString:ARROW_ANNOTATION]) {
+                startPoint = MKMapPointForCoordinate(theAnnotation.coordinate);
+                startLocation = [[CLLocation alloc] initWithLatitude: theAnnotation.coordinate.latitude longitude: theAnnotation.coordinate.longitude];
+                startAnnotation = theAnnotation;
+            }else{
+                endPoint = MKMapPointForCoordinate(theAnnotation.coordinate);
+                endLocation = [[CLLocation alloc] initWithLatitude: theAnnotation.coordinate.latitude longitude: theAnnotation.coordinate.longitude];
+            }
+        }
+        MKMapPoint *pointArray = malloc(sizeof(CLLocationCoordinate2D) * 2);
+        pointArray[0] = startPoint;
+        pointArray[1] = endPoint;
+        MKPolyline *routeLine = [MKPolyline polylineWithPoints:pointArray count:2];
+        [self.myMapView addOverlay:routeLine];
+
     }
 }
 
@@ -165,6 +190,20 @@
     // 12c - Jump to the second tab
     [self.tabBarController setSelectedIndex:1];
 
+}
+
+// 15 - Draw a line between two points
+- (MKOverlayView *) mapView:(MKMapView *) mapView viewForOverlay:(id) overlay {
+    if ([overlay isKindOfClass:[MKPolyline class]]){
+        MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline:overlay];
+        [polylineView setFillColor:[UIColor blueColor]];
+        [polylineView setStrokeColor:[UIColor blueColor]];
+        [polylineView setLineWidth:3];
+        MKOverlayView *overlayView = polylineView;
+        return overlayView;
+    }else {
+        return nil;
+    }
 }
 
 @end
