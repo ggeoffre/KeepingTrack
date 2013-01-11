@@ -172,6 +172,10 @@
         pointArray[1] = endPoint;
         MKPolyline *routeLine = [MKPolyline polylineWithPoints:pointArray count:2];
         [self.myMapView addOverlay:routeLine];
+        
+        // 16 - Determine the distance
+        CLLocationDistance meters = [startLocation distanceFromLocation:endLocation];
+        [self.myDistance setText:[NSString stringWithFormat:@"Distance: %.01f km", ( meters / 1000 ) ]];
 
     }
 }

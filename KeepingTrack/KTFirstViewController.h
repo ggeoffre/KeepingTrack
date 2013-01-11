@@ -36,5 +36,6 @@
 @interface KTFirstViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet MKMapView *myMapView;
+@property (weak, nonatomic) IBOutlet UILabel *myDistance;
 
 @end
