@@ -99,7 +99,11 @@
     UIImageView *leftIconView =
         [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"codemash-left-callout.png"]];
     [customAnnotationView setLeftCalloutAccessoryView:leftIconView];
-
+    
+    // 11 - Add a Button to the Callout
+    UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    [customAnnotationView setRightCalloutAccessoryView:rightButton];
+    
     return customAnnotationView;
 }
 
