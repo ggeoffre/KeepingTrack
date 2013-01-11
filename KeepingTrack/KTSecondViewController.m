@@ -41,7 +41,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Second", @"Second");
+        self.title = NSLocalizedString(@"Web", @"Web");
         self.tabBarItem.image = [UIImage imageNamed:@"second"];
     }
     return self;
@@ -52,7 +52,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 
-    // 12b - Load a web page
+    // 12 - Load a web page
     NSString *urlAddress = @"http://codemash.org/";
     NSURL *url = [NSURL URLWithString:urlAddress];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];

@@ -41,7 +41,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"First", @"First");
+        self.title = NSLocalizedString(@"Map", @"Map");
         self.tabBarItem.image = [UIImage imageNamed:@"first"];
     }
     return self;
@@ -57,13 +57,6 @@
 {
     [super viewDidAppear:animated];
 
-    // 01 - Center the Map at a Location
-//    CLLocationCoordinate2D location = {40.30444, -82.69556};
-//    [self.myMapView setRegion:MKCoordinateRegionMakeWithDistance(location,300000, 300000) animated:YES];
-    
-    // 02 - Add an Annotation to the Map
-//    [self.myMapView addAnnotation:[[KTMapAnnotation alloc] initWithCoordinate:location]];
-    
     // 13 - Working with Multiple Points
     double pointOneLatitude = 39.13333;
     double pointOneLongitude = -84.50000;
@@ -74,8 +67,8 @@
     [pointOneAnnotation setTypeOfAnnotation:PIN_ANNOTATION];
     [self.myMapView addAnnotation:pointOneAnnotation];
     
-    double pointTwoLatitude = 39.98333;
-    double pointTwoLongitude = -82.98333;
+    double pointTwoLatitude = 41.38376;
+    double pointTwoLongitude = -82.64496;
     CLLocationCoordinate2D pointTwoCoordinate =
     {pointTwoLatitude, pointTwoLongitude};
      KTMapAnnotation *pointTwoAnnotation =
@@ -97,14 +90,6 @@
 - (MKAnnotationView *) mapView:(MKMapView *) mapView viewForAnnotation: (id) annotation
 {
     
-    // 03 - Create a custom annotation
-//    MKPinAnnotationView *customAnnotationView =
-//        [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
-    
-    // 04 - Customize the Pin
-//    [customAnnotationView setPinColor:MKPinAnnotationColorPurple];
-//    [customAnnotationView setAnimatesDrop:YES];
-            
     // 13 - Working with Multiple Points
     MKAnnotationView *customAnnotationView;
     if ([annotation isKindOfClass:[KTMapAnnotation class]] ){
@@ -118,11 +103,6 @@
         }else{
             customAnnotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
 
-            // 05 - Create a Custom Pin Image
-//            MKAnnotationView *customAnnotationView =
-//            [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
-//            [customAnnotationView setImage:[UIImage imageNamed:@"blue-arrow.png"]];
-            
             // 17 - Determine the direction
             UIImage *arrowImage = [UIImage imageNamed:@"blue-arrow.png"];
             double direction = [theAnnotation direction];

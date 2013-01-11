@@ -38,7 +38,7 @@
 // 17 - Determine the direction
 @synthesize direction;
 
-// 13a - Working with Multiple Points
+// 13 - Working with Multiple Points
 @synthesize typeOfAnnotation;
 
 - (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate
