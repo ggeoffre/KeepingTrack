@@ -77,12 +77,18 @@
 {
     
     // 03 - Create a custom annotation
-    MKPinAnnotationView *customAnnotationView =
-        [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+//    MKPinAnnotationView *customAnnotationView =
+//        [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
     
     // 04 - Customize the Pin
-    [customAnnotationView setPinColor:MKPinAnnotationColorPurple];
-    [customAnnotationView setAnimatesDrop:YES];
+//    [customAnnotationView setPinColor:MKPinAnnotationColorPurple];
+//    [customAnnotationView setAnimatesDrop:YES];
+    
+    // 05 - Create a Custom Pin Image
+    MKAnnotationView *customAnnotationView =
+        [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+    [customAnnotationView setImage:[UIImage imageNamed:@"blue-arrow.png"]];
+
     
     return customAnnotationView;
 }

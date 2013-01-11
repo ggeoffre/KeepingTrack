@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EF28C0AF16A0684B00053817 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF28C0AE16A0684B00053817 /* MapKit.framework */; };
 		EF28C0B316A06AA400053817 /* KTMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF28C0B216A06AA400053817 /* KTMapAnnotation.m */; };
+		EF28C0B516A06E0600053817 /* blue-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = EF28C0B416A06E0600053817 /* blue-arrow.png */; };
 		EFB882CE169F7717006A9BBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB882CD169F7717006A9BBE /* UIKit.framework */; };
 		EFB882D0169F7717006A9BBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB882CF169F7717006A9BBE /* Foundation.framework */; };
 		EFB882D2169F7717006A9BBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB882D1169F7717006A9BBE /* CoreGraphics.framework */; };
@@ -34,6 +35,7 @@
 		EF28C0AE16A0684B00053817 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		EF28C0B116A06AA400053817 /* KTMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTMapAnnotation.h; sourceTree = "<group>"; };
 		EF28C0B216A06AA400053817 /* KTMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTMapAnnotation.m; sourceTree = "<group>"; };
+		EF28C0B416A06E0600053817 /* blue-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-arrow.png"; sourceTree = "<group>"; };
 		EFB882C9169F7717006A9BBE /* KeepingTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeepingTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFB882CD169F7717006A9BBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EFB882CF169F7717006A9BBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -115,6 +117,7 @@
 				EF28C0B216A06AA400053817 /* KTMapAnnotation.m */,
 				EFB882E8169F7717006A9BBE /* first.png */,
 				EFB882EA169F7717006A9BBE /* first@2x.png */,
+				EF28C0B416A06E0600053817 /* blue-arrow.png */,
 				EFB882EC169F7717006A9BBE /* KTSecondViewController.h */,
 				EFB882ED169F7717006A9BBE /* KTSecondViewController.m */,
 				EFB882EF169F7717006A9BBE /* second.png */,
@@ -206,6 +209,7 @@
 				EFB882F8169F7717006A9BBE /* KTFirstViewController_iPad.xib in Resources */,
 				EFB882FB169F7717006A9BBE /* KTSecondViewController_iPhone.xib in Resources */,
 				EFB882FE169F7717006A9BBE /* KTSecondViewController_iPad.xib in Resources */,
+				EF28C0B516A06E0600053817 /* blue-arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
