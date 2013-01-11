@@ -30,7 +30,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 @interface KTFirstViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet MKMapView *myMapView;
 
 @end
