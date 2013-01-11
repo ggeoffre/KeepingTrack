@@ -37,5 +37,6 @@
 
 @property (weak, nonatomic) IBOutlet MKMapView *myMapView;
 @property (weak, nonatomic) IBOutlet UILabel *myDistance;
+@property (weak, nonatomic) IBOutlet UILabel *myDirection;
 
 @end

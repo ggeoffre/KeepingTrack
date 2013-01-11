@@ -121,8 +121,13 @@
             // 05 - Create a Custom Pin Image
 //            MKAnnotationView *customAnnotationView =
 //            [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
-            [customAnnotationView setImage:[UIImage imageNamed:@"blue-arrow.png"]];
-                        
+//            [customAnnotationView setImage:[UIImage imageNamed:@"blue-arrow.png"]];
+            
+            // 17 - Determine the direction
+            UIImage *arrowImage = [UIImage imageNamed:@"blue-arrow.png"];
+            double direction = [theAnnotation direction];
+            [customAnnotationView setImage:[self rotatedImage:arrowImage byDegreesFromNorth:direction]];
+            
             // 08 - Add a Callout
             [customAnnotationView setCanShowCallout:YES];
             
@@ -176,8 +181,67 @@
         // 16 - Determine the distance
         CLLocationDistance meters = [startLocation distanceFromLocation:endLocation];
         [self.myDistance setText:[NSString stringWithFormat:@"Distance: %.01f km", ( meters / 1000 ) ]];
+        
+        // 17 - Determine the direction
+        double lat1 = startLocation.coordinate.latitude * M_PI / 180.0;
+        double lon1 = startLocation.coordinate.longitude * M_PI / 180.0;
+        double lat2 = endLocation.coordinate.latitude * M_PI / 180.0;
+        double lon2 = endLocation.coordinate.longitude * M_PI / 180.0;
+        
+        double dLon = lon2 - lon1;
+        double y = sin(dLon) * cos(lat2);
+        double x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon);
+        double radiansBearing = atan2(y, x);
+        
+        CLLocationDirection directionBetweenPoints = radiansBearing * 180.0 / M_PI;
+        [self.myDirection setText:[NSString stringWithFormat:@"Direction: %.01f dir", directionBetweenPoints ]];
+        
+        double degrees = directionBetweenPoints + 180.0;
+        if ((degrees >= 22.5 ) && (degrees < 67.5 )){
+            [self.myDirection setText:@"Direction: SW"];
+        }else if ((degrees >= 67.5 ) && (degrees < 112.5 )){
+            [self.myDirection setText:@"Direction: W"];
+        }else if ((degrees >= 112.5 ) && (degrees < 157.5 )){
+            [self.myDirection setText:@"Direction: NW"];
+        }else if ((degrees >= 157.5 ) && (degrees < 202.5 )){
+            [self.myDirection setText:@"Direction: N"];
+        }else if ((degrees >= 202.5 ) && (degrees < 247.5 )){
+            [self.myDirection setText:@"Direction: NE"];
+        }else if ((degrees >= 247.5 ) && (degrees < 292.5 )){
+            [self.myDirection setText:@"Direction: E"];
+        }else if ((degrees >= 292.5 ) && (degrees < 337.5 )){
+            [self.myDirection setText:@"Direction: SE"];
+        }else{
+            [self.myDirection setText:@"Direction: S"];
+        }
+        
+        [startAnnotation setDirection:directionBetweenPoints];
+        [self.myMapView removeAnnotation:startAnnotation];
+        [self.myMapView addAnnotation:startAnnotation];
+
+        CLLocationCoordinate2D location = {startLocation.coordinate.latitude, startLocation.coordinate.longitude};
+        [self.myMapView setRegion:MKCoordinateRegionMakeWithDistance(location,(meters * 1.30),(meters * 1.30)) animated:YES];
 
     }
+}
+
+// 17 - Determine the direction
+- (UIImage*)rotatedImage:(UIImage*)sourceImage byDegreesFromNorth:(double)degrees
+{
+    
+    CGSize rotateSize =  sourceImage.size;
+    UIGraphicsBeginImageContext(rotateSize);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextTranslateCTM(context, rotateSize.width/2, rotateSize.height/2);
+    CGContextRotateCTM(context, ( degrees * M_PI/180.0 ) );
+    CGContextScaleCTM(context, 1.0, -1.0);
+    CGContextDrawImage(UIGraphicsGetCurrentContext(),
+                       CGRectMake(-rotateSize.width/2,-rotateSize.height/2,rotateSize.width, rotateSize.height),
+                       sourceImage.CGImage);
+    UIImage *rotatedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return rotatedImage;
 }
 
 // 09 - Auto Display Callout

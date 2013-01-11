@@ -35,6 +35,9 @@
 
 @synthesize coordinate=_coordinate;
 
+// 17 - Determine the direction
+@synthesize direction;
+
 // 13a - Working with Multiple Points
 @synthesize typeOfAnnotation;
 

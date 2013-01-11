@@ -53,4 +53,7 @@
 // 13a - Working with Multiple Points
 @property(nonatomic, strong) NSString *typeOfAnnotation;
 
+// 17 - Determine the direction
+@property CLLocationDirection direction;
+
 @end
