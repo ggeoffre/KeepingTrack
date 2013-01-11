@@ -96,4 +96,14 @@
     return customAnnotationView;
 }
 
+// 07 - Do Something when Dropped
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)annotationView didChangeDragState:(MKAnnotationViewDragState)newState fromOldState:(MKAnnotationViewDragState)oldState
+{
+    if (newState == MKAnnotationViewDragStateEnding)
+    {
+        NSLog(@"Do something when annotation is dropped");
+    }
+}
+
+
 @end
