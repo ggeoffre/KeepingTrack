@@ -94,6 +94,11 @@
 
     // 08 - Add a Callout
     [customAnnotationView setCanShowCallout:YES];
+    
+    // 10 - Add an Image to the Callout
+    UIImageView *leftIconView =
+        [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"codemash-left-callout.png"]];
+    [customAnnotationView setLeftCalloutAccessoryView:leftIconView];
 
     return customAnnotationView;
 }
