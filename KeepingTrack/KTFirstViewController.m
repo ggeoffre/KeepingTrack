@@ -89,6 +89,9 @@
         [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
     [customAnnotationView setImage:[UIImage imageNamed:@"blue-arrow.png"]];
 
+    // 06 - Supporting Drag and Drop
+    [customAnnotationView setDraggable:YES];
+
     
     return customAnnotationView;
 }

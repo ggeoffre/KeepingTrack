@@ -39,4 +39,8 @@
 
 - (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate;
 
+// 06 - Supporting Drag and Drop
+- (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate;
+
+
 @end

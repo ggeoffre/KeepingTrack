@@ -47,4 +47,10 @@
     return self;
 }
 
+// 06 - Supporting Drag and Drop
+- (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate
+{
+    _coordinate = newCoordinate;
+}
+
 @end
