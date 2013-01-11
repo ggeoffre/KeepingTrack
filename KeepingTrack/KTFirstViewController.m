@@ -72,4 +72,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+// 03 - Become a MKMapViewDelegate
+- (MKAnnotationView *) mapView:(MKMapView *) mapView viewForAnnotation: (id) annotation
+{
+    
+    // 03 - Create a custom annotation
+    MKPinAnnotationView *customAnnotationView =
+        [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+    
+    return customAnnotationView;
+}
+
 @end
