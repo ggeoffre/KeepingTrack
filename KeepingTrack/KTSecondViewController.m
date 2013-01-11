@@ -51,6 +51,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+
+    // 12b - Load a web page
+    NSString *urlAddress = @"http://codemash.org/";
+    NSURL *url = [NSURL URLWithString:urlAddress];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    [self.myWebView loadRequest:requestObj];
+    
 }
 
 - (void)didReceiveMemoryWarning

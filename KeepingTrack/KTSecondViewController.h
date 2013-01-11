@@ -33,4 +33,6 @@
 
 @interface KTSecondViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIWebView *myWebView;
+
 @end
