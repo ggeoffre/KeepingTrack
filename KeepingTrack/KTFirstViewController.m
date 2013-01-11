@@ -80,6 +80,10 @@
     MKPinAnnotationView *customAnnotationView =
         [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
     
+    // 04 - Customize the Pin
+    [customAnnotationView setPinColor:MKPinAnnotationColorPurple];
+    [customAnnotationView setAnimatesDrop:YES];
+    
     return customAnnotationView;
 }
 
