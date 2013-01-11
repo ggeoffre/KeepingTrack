@@ -32,6 +32,10 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
+// 13a - Working with Multiple Points
+#define ARROW_ANNOTATION @"ARROW_ANNOTATION"
+#define PIN_ANNOTATION @"PIN_ANNOTATION"
+
 @interface KTMapAnnotation : NSObject <MKAnnotation> {
 
     CLLocationCoordinate2D _coordinate;
@@ -46,5 +50,7 @@
 - (NSString*) title;
 - (NSString*) subtitle;
 
+// 13a - Working with Multiple Points
+@property(nonatomic, strong) NSString *typeOfAnnotation;
 
 @end

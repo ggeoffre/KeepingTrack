@@ -58,12 +58,33 @@
     [super viewDidAppear:animated];
 
     // 01 - Center the Map at a Location
-    CLLocationCoordinate2D location = {40.30444, -82.69556};
-    [self.myMapView setRegion:MKCoordinateRegionMakeWithDistance(location,300000, 300000) animated:YES];
+//    CLLocationCoordinate2D location = {40.30444, -82.69556};
+//    [self.myMapView setRegion:MKCoordinateRegionMakeWithDistance(location,300000, 300000) animated:YES];
     
     // 02 - Add an Annotation to the Map
-    [self.myMapView addAnnotation:[[KTMapAnnotation alloc] initWithCoordinate:location]];
+//    [self.myMapView addAnnotation:[[KTMapAnnotation alloc] initWithCoordinate:location]];
     
+    // 13 - Working with Multiple Points
+    double pointOneLatitude = 39.13333;
+    double pointOneLongitude = -84.50000;
+    CLLocationCoordinate2D pointOneCoordinate =
+        {pointOneLatitude, pointOneLongitude};
+    KTMapAnnotation *pointOneAnnotation =
+        [[KTMapAnnotation alloc] initWithCoordinate:pointOneCoordinate];
+    [pointOneAnnotation setTypeOfAnnotation:PIN_ANNOTATION];
+    [self.myMapView addAnnotation:pointOneAnnotation];
+    
+    double pointTwoLatitude = 39.98333;
+    double pointTwoLongitude = -82.98333;
+    CLLocationCoordinate2D pointTwoCoordinate =
+    {pointTwoLatitude, pointTwoLongitude};
+     KTMapAnnotation *pointTwoAnnotation =
+     [[KTMapAnnotation alloc] initWithCoordinate:pointTwoCoordinate];
+    [pointTwoAnnotation setTypeOfAnnotation:ARROW_ANNOTATION];
+    [self.myMapView addAnnotation:pointTwoAnnotation];
+
+    [self.myMapView setRegion:MKCoordinateRegionMakeWithDistance(pointTwoCoordinate,300000, 300000) animated:YES];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,27 +104,41 @@
     // 04 - Customize the Pin
 //    [customAnnotationView setPinColor:MKPinAnnotationColorPurple];
 //    [customAnnotationView setAnimatesDrop:YES];
-    
-    // 05 - Create a Custom Pin Image
-    MKAnnotationView *customAnnotationView =
-        [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
-    [customAnnotationView setImage:[UIImage imageNamed:@"blue-arrow.png"]];
+            
+    // 13 - Working with Multiple Points
+    MKAnnotationView *customAnnotationView;
+    if ([annotation isKindOfClass:[KTMapAnnotation class]] ){
+        KTMapAnnotation *theAnnotation = (KTMapAnnotation*)annotation;
+        if ([[theAnnotation typeOfAnnotation] isEqualToString:PIN_ANNOTATION]) {
+            customAnnotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+        }else{
+            customAnnotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
 
-    // 06 - Supporting Drag and Drop
-    [customAnnotationView setDraggable:YES];
+            // 05 - Create a Custom Pin Image
+//            MKAnnotationView *customAnnotationView =
+//            [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+            [customAnnotationView setImage:[UIImage imageNamed:@"blue-arrow.png"]];
+            
+            // 06 - Supporting Drag and Drop
+            [customAnnotationView setDraggable:YES];
+            
+            // 08 - Add a Callout
+            [customAnnotationView setCanShowCallout:YES];
+            
+            // 10 - Add an Image to the Callout
+            UIImageView *leftIconView =
+            [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"codemash-left-callout.png"]];
+            [customAnnotationView setLeftCalloutAccessoryView:leftIconView];
+            
+            // 11 - Add a Button to the Callout
+            UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            [customAnnotationView setRightCalloutAccessoryView:rightButton];
+            
+        }
+    }else{
+        return nil;
+    }
 
-    // 08 - Add a Callout
-    [customAnnotationView setCanShowCallout:YES];
-    
-    // 10 - Add an Image to the Callout
-    UIImageView *leftIconView =
-        [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"codemash-left-callout.png"]];
-    [customAnnotationView setLeftCalloutAccessoryView:leftIconView];
-    
-    // 11 - Add a Button to the Callout
-    UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    [customAnnotationView setRightCalloutAccessoryView:rightButton];
-    
     return customAnnotationView;
 }
 

@@ -35,6 +35,9 @@
 
 @synthesize coordinate=_coordinate;
 
+// 13a - Working with Multiple Points
+@synthesize typeOfAnnotation;
+
 - (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate
 {
     self = [super init];
