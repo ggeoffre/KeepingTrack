@@ -11,6 +11,7 @@
 		EF28C0B316A06AA400053817 /* KTMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF28C0B216A06AA400053817 /* KTMapAnnotation.m */; };
 		EF28C0B516A06E0600053817 /* blue-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = EF28C0B416A06E0600053817 /* blue-arrow.png */; };
 		EF28C0B716A071BA00053817 /* codemash-left-callout.png in Resources */ = {isa = PBXBuildFile; fileRef = EF28C0B616A071BA00053817 /* codemash-left-callout.png */; };
+		EFB3314516A075FB005BC1CD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB3314416A075FB005BC1CD /* CoreLocation.framework */; };
 		EFB882CE169F7717006A9BBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB882CD169F7717006A9BBE /* UIKit.framework */; };
 		EFB882D0169F7717006A9BBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB882CF169F7717006A9BBE /* Foundation.framework */; };
 		EFB882D2169F7717006A9BBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB882D1169F7717006A9BBE /* CoreGraphics.framework */; };
@@ -38,6 +39,7 @@
 		EF28C0B216A06AA400053817 /* KTMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTMapAnnotation.m; sourceTree = "<group>"; };
 		EF28C0B416A06E0600053817 /* blue-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-arrow.png"; sourceTree = "<group>"; };
 		EF28C0B616A071BA00053817 /* codemash-left-callout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "codemash-left-callout.png"; sourceTree = "<group>"; };
+		EFB3314416A075FB005BC1CD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		EFB882C9169F7717006A9BBE /* KeepingTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeepingTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFB882CD169F7717006A9BBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EFB882CF169F7717006A9BBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -70,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFB3314516A075FB005BC1CD /* CoreLocation.framework in Frameworks */,
 				EF28C0AF16A0684B00053817 /* MapKit.framework in Frameworks */,
 				EFB882CE169F7717006A9BBE /* UIKit.framework in Frameworks */,
 				EFB882D0169F7717006A9BBE /* Foundation.framework in Frameworks */,
@@ -83,7 +86,6 @@
 		EFB882BE169F7717006A9BBE = {
 			isa = PBXGroup;
 			children = (
-				EF28C0AE16A0684B00053817 /* MapKit.framework */,
 				EFB882D3169F7717006A9BBE /* KeepingTrack */,
 				EFB882CC169F7717006A9BBE /* Frameworks */,
 				EFB882CA169F7717006A9BBE /* Products */,
@@ -101,6 +103,8 @@
 		EFB882CC169F7717006A9BBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EFB3314416A075FB005BC1CD /* CoreLocation.framework */,
+				EF28C0AE16A0684B00053817 /* MapKit.framework */,
 				EFB882CD169F7717006A9BBE /* UIKit.framework */,
 				EFB882CF169F7717006A9BBE /* Foundation.framework */,
 				EFB882D1169F7717006A9BBE /* CoreGraphics.framework */,
