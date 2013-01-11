@@ -61,6 +61,9 @@
     CLLocationCoordinate2D location = {40.30444, -82.69556};
     [self.myMapView setRegion:MKCoordinateRegionMakeWithDistance(location,300000, 300000) animated:YES];
     
+    // 02 - Add an Annotation to the Map
+    [self.myMapView addAnnotation:[[KTMapAnnotation alloc] initWithCoordinate:location]];
+    
 }
 
 - (void)didReceiveMemoryWarning

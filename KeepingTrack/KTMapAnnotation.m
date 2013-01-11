@@ -1,5 +1,5 @@
 //
-//  KTFirstViewController.h
+//  KTMapAnnotation.m
 //  KeepingTrack
 //
 //  Copyright (c) 2013, ggeoffre, LLC
@@ -29,12 +29,22 @@
 //  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-#import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
 #import "KTMapAnnotation.h"
 
-@interface KTFirstViewController : UIViewController
+@implementation KTMapAnnotation
 
-@property (weak, nonatomic) IBOutlet MKMapView *myMapView;
+@synthesize coordinate=_coordinate;
+
+- (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate
+{
+    self = [super init];
+    
+    if (self != nil)
+    {
+        _coordinate = coordinate;
+    }
+    
+    return self;
+}
 
 @end

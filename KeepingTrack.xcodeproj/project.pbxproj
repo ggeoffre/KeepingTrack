@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EF28C0AF16A0684B00053817 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF28C0AE16A0684B00053817 /* MapKit.framework */; };
+		EF28C0B316A06AA400053817 /* KTMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF28C0B216A06AA400053817 /* KTMapAnnotation.m */; };
 		EFB882CE169F7717006A9BBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB882CD169F7717006A9BBE /* UIKit.framework */; };
 		EFB882D0169F7717006A9BBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB882CF169F7717006A9BBE /* Foundation.framework */; };
 		EFB882D2169F7717006A9BBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB882D1169F7717006A9BBE /* CoreGraphics.framework */; };
@@ -31,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		EF28C0AE16A0684B00053817 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		EF28C0B116A06AA400053817 /* KTMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTMapAnnotation.h; sourceTree = "<group>"; };
+		EF28C0B216A06AA400053817 /* KTMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTMapAnnotation.m; sourceTree = "<group>"; };
 		EFB882C9169F7717006A9BBE /* KeepingTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeepingTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFB882CD169F7717006A9BBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EFB882CF169F7717006A9BBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -108,6 +111,8 @@
 				EFB882DD169F7717006A9BBE /* KTAppDelegate.m */,
 				EFB882E5169F7717006A9BBE /* KTFirstViewController.h */,
 				EFB882E6169F7717006A9BBE /* KTFirstViewController.m */,
+				EF28C0B116A06AA400053817 /* KTMapAnnotation.h */,
+				EF28C0B216A06AA400053817 /* KTMapAnnotation.m */,
 				EFB882E8169F7717006A9BBE /* first.png */,
 				EFB882EA169F7717006A9BBE /* first@2x.png */,
 				EFB882EC169F7717006A9BBE /* KTSecondViewController.h */,
@@ -215,6 +220,7 @@
 				EFB882DE169F7717006A9BBE /* KTAppDelegate.m in Sources */,
 				EFB882E7169F7717006A9BBE /* KTFirstViewController.m in Sources */,
 				EFB882EE169F7717006A9BBE /* KTSecondViewController.m in Sources */,
+				EF28C0B316A06AA400053817 /* KTMapAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
