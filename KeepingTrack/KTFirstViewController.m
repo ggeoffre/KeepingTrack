@@ -122,4 +122,10 @@
     [self.myMapView selectAnnotation: [[self.myMapView annotations] lastObject] animated:YES];
 }
 
+// 12a - Do Something when Tapped
+- (void)mapView:(MKMapView *) mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    NSLog(@"Do Something when tapped");
+}
+
 @end
