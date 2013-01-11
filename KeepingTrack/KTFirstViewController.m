@@ -126,6 +126,10 @@
 - (void)mapView:(MKMapView *) mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     NSLog(@"Do Something when tapped");
+    
+    // 12c - Jump to the second tab
+    [self.tabBarController setSelectedIndex:1];
+
 }
 
 @end
